@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS `BookManaging`
+USE `BookManaging`;
+
+DROP TABLE IF EXISTS `ADMIN`;
+
+CREATE TABLE `ADMIN` (
+  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_name` varchar(45) DEFAULT NULL,
+  `admin_pwd` varchar(45) DEFAULT NULL,
+  `admin_mail` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `ADMIN` VALUES 
+	(1,'noahtseng','banana123456','a9710725@yahoo.com.com'),
+	(2,'allanliu','allan123456','allan123@yopmail.com'),
+	(3,'edisonhuang','edison123456','edison123@yopmail.com')
