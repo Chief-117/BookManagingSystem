@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `BookManaging`
+CREATE DATABASE IF NOT EXISTS `BookManaging`;
 USE `BookManaging`;
 
 DROP TABLE IF EXISTS `ADMIN`;
@@ -8,7 +8,7 @@ CREATE TABLE `ADMIN` (
   `admin_name` varchar(45) DEFAULT NULL,
   `admin_pwd` varchar(45) DEFAULT NULL,
   `admin_mail` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`admin_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `ADMIN` VALUES 
