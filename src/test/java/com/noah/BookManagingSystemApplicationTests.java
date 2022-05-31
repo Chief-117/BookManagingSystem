@@ -27,7 +27,7 @@ class BookManagingSystemApplicationTests {
 			System.out.println("有這筆資料");
 		}
 		if(a2.isPresent()) {//測試JPA內建方法 find...By屬性值
-			System.out.println("OKOKOK");
+			System.out.println("JWT測試有");
 		}
 	}
 }

@@ -29,6 +29,11 @@ public class Admin {
 	public Admin() {
 		
 	}
+	public Admin(String adminName, String adminPwd, String adminMail) {
+		this.adminName = adminName;
+		this.adminPwd = adminPwd;
+		this.adminMail = adminMail;
+	}
 	public Integer getAdminId() {
 		return adminId;
 	}
