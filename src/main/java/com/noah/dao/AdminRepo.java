@@ -13,6 +13,6 @@ public interface AdminRepo extends JpaRepository<Admin,String>{
 	@Query(value="select * from ADMIN where admin_name =:adminName and admin_pwd =:adminPwd" , nativeQuery = true)
 	public Admin checkNameAndPwd(@Param("adminName") String adminName, @Param("adminPwd") String adminPwd);
 
-	Optional<Admin> findAdminByAdminName(String adminName);
+	Optional<Admin> findAdminByAdminMail(String adminMail);
 	//for AuthController produce JWT 
 }

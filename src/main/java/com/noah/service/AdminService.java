@@ -10,5 +10,5 @@ public interface AdminService {
 	
 	public String findByName(String name,String pwd);
 	
-	public Optional<Admin> getOneAdmin(String name);
+	public Optional<Admin> getOneAdmin(String mail);
 }

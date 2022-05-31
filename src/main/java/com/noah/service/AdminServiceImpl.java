@@ -33,9 +33,9 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Optional<Admin> getOneAdmin(String name) {
+	public Optional<Admin> getOneAdmin(String mail) {
 		
-		return adminRepo.findAdminByAdminName(name);
+		return adminRepo.findAdminByAdminMail(mail);//for JWT
 	}
 
 }
