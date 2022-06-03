@@ -33,14 +33,13 @@ public class AdminController {
 	}
 	@PostMapping("/login2")
 	public ResponseEntity<String> JWTLogin(@RequestBody HashMap<String,String> map){
-		String name= map.get("adminName");
 		String pwd= map.get("adminPwd");
 		String mail= map.get("adminMail");
         String result="null data";
-        if(StringUtils.isBlank(mail)||StringUtils.isBlank(pwd)||StringUtils.isBlank(name)){
+        if(StringUtils.isBlank(mail)||StringUtils.isBlank(pwd)){
             return ResponseEntity.ok(result);
         }else{
-            result=theJWTAuthService.VerifyAdmin(name, pwd, mail);
+            result=theJWTAuthService.VerifyAdmin(mail, pwd);
             return ResponseEntity.ok(result);  
         }	
 	}
