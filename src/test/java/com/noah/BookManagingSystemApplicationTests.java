@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.noah.dao.AdminRepo;
-import com.noah.entity.Admin;
+import com.noah.entity.AdminEntity;
 
 @SpringBootTest
 class BookManagingSystemApplicationTests {
@@ -21,8 +21,8 @@ class BookManagingSystemApplicationTests {
 		String username = "noahtseng";
 		String pwd = "banana123456";
 		String mail = "a9710725@yahoo.com.com";
-		Admin admin = adminRepo.checkNameAndPwd(username, pwd);
-		Optional<Admin> a2 = adminRepo.findAdminByAdminMail(mail);
+		AdminEntity admin = adminRepo.checkNameAndPwd(username, pwd);
+		Optional<AdminEntity> a2 = adminRepo.findAdminByAdminMail(mail);
 		if(admin != null) {
 			System.out.println("有這筆資料");
 		}

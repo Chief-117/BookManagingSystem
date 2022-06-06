@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.noah.dao.AdminRepo;
-import com.noah.entity.Admin;
+import com.noah.entity.AdminEntity;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -24,7 +24,7 @@ public class AdminServiceImpl implements AdminService {
 		if (name.isEmpty() || pwd.isEmpty()) {
 				return "Error";
 			} else {
-				Admin admin = adminRepo.checkNameAndPwd(name, pwd);
+				AdminEntity admin = adminRepo.checkNameAndPwd(name, pwd);
 				if (admin != null) {
 					return "OK";
 			}
@@ -33,7 +33,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Optional<Admin> getOneAdmin(String mail) {
+	public Optional<AdminEntity> getOneAdmin(String mail) {
 		
 		return adminRepo.findAdminByAdminMail(mail);//for JWT
 	}

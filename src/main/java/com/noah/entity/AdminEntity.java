@@ -5,9 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Table(name="ADMIN")
-public class Admin {
+public class AdminEntity {
 	@Id
 	@Column(name="admin_id")
 	private Integer adminId;
@@ -26,44 +35,9 @@ public class Admin {
 		return "ADMIN [adminId=" + adminId + ", adminName=" + adminName + ", adminPwd=" + adminPwd + ", adminMail="
 				+ adminMail + "]";
 	}
-	public Admin() {
-		
-	}
-	public Admin(String adminName, String adminPwd, String adminMail) {
+	public AdminEntity(String adminName, String adminPwd, String adminMail) {
 		this.adminName = adminName;
 		this.adminPwd = adminPwd;
 		this.adminMail = adminMail;
 	}
-	public Integer getAdminId() {
-		return adminId;
-	}
-
-	public void setAdminId(Integer adminId) {
-		this.adminId = adminId;
-	}
-
-	public String getAdminName() {
-		return adminName;
-	}
-
-	public void setAdminName(String adminName) {
-		this.adminName = adminName;
-	}
-
-	public String getAdminPwd() {
-		return adminPwd;
-	}
-
-	public void setAdminPwd(String adminPwd) {
-		this.adminPwd = adminPwd;
-	}
-
-	public String getAdminMail() {
-		return adminMail;
-	}
-
-	public void setAdminMail(String adminMail) {
-		this.adminMail = adminMail;
-	}
-	
 }

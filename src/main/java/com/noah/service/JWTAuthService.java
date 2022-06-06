@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.noah.dao.AdminRepo;
-import com.noah.entity.Admin;
+import com.noah.entity.AdminEntity;
 @Service
 public class JWTAuthService {
 	
@@ -20,7 +20,7 @@ public class JWTAuthService {
 		this.adminRepo = adminRepo;
 	}
 	public String VerifyAdmin(String adminMail,String adminPwd) {
-		Optional<Admin> admin = adminRepo.findAdminByAdminMail(adminMail);
+		Optional<AdminEntity> admin = adminRepo.findAdminByAdminMail(adminMail);
 		/*
         0000 login success
         0001 wrong email

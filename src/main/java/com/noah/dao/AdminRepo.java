@@ -6,13 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.noah.entity.Admin;
+import com.noah.entity.AdminEntity;
 
-public interface AdminRepo extends JpaRepository<Admin,String>{
+public interface AdminRepo extends JpaRepository<AdminEntity,String>{
 
 	@Query(value="select * from ADMIN where admin_name =:adminName and admin_pwd =:adminPwd" , nativeQuery = true)
-	public Admin checkNameAndPwd(@Param("adminName") String adminName, @Param("adminPwd") String adminPwd);
+	public AdminEntity checkNameAndPwd(@Param("adminName") String adminName, @Param("adminPwd") String adminPwd);
 
-	Optional<Admin> findAdminByAdminMail(String adminMail);
+	Optional<AdminEntity> findAdminByAdminMail(String adminMail);
 	//for AuthController produce JWT 
 }
