@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.noah.api.model.AjaxResultType;
+import com.noah.api.model.BaseResponse;
 import com.noah.service.AdminService;
 import com.noah.service.JWTAuthService;
 
@@ -32,15 +34,20 @@ public class AdminController {
         return adminService.findByName(name,pwd);
 	}
 	@PostMapping("/login2")
-	public ResponseEntity<String> JWTLogin(@RequestBody HashMap<String,String> map){
+	public BaseResponse JWTLogin(@RequestBody HashMap<String,String> map){
+		BaseResponse res = new BaseResponse();
 		String pwd= map.get("adminPwd");
 		String mail= map.get("adminMail");
         String result="null data";
         if(StringUtils.isBlank(mail)||StringUtils.isBlank(pwd)){
-            return ResponseEntity.ok(result);
+            res.setCode(AjaxResultType.EMPTY.getCode());
+            res.setMsg(AjaxResultType.EMPTY.getMsg());
         }else{
             result=theJWTAuthService.VerifyAdmin(mail, pwd);
-            return ResponseEntity.ok(result);  
-        }	
+            res.setCode(AjaxResultType.SUCCESS.getCode());
+            res.setMsg(AjaxResultType.SUCCESS.getMsg());
+            res.setData(result);
+        }
+        return res;
 	}
 }
