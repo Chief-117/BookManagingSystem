@@ -29,25 +29,25 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String Login(@RequestParam("name") String name,@RequestParam("pwd") String pwd) {
-        return adminService.findByName(name,pwd);
-	}
-	@PostMapping("/login2")
+	@PostMapping("/login")
 	public BaseResponse JWTLogin(@RequestBody HashMap<String,String> map){
 		BaseResponse res = new BaseResponse();
 		String pwd= map.get("adminPwd");
 		String mail= map.get("adminMail");
-        String result="null data";
+        String result="";
         if(StringUtils.isBlank(mail)||StringUtils.isBlank(pwd)){
             res.setCode(AjaxResultType.EMPTY.getCode());
             res.setMsg(AjaxResultType.EMPTY.getMsg());
         }else{
-            result=theJWTAuthService.VerifyAdmin(mail, pwd);
-            res.setCode(AjaxResultType.SUCCESS.getCode());
-            res.setMsg(AjaxResultType.SUCCESS.getMsg());
-            res.setData(result);
+        	result=theJWTAuthService.VerifyAdmin(mail, pwd);
+        	res.setCode(AjaxResultType.SUCCESS.getCode());
+        	res.setMsg(AjaxResultType.SUCCESS.getMsg());
+        	res.setData(result);        	
         }
         return res;
+//	@RequestMapping(value = "/login", method = RequestMethod.POST)
+//	public String Login(@RequestParam("name") String name,@RequestParam("pwd") String pwd) {
+//        return adminService.findByName(name,pwd);
+//	}
 	}
 }
