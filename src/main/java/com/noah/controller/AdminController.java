@@ -2,6 +2,7 @@ package com.noah.controller;
 
 import java.util.HashMap;
 
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.noah.api.model.AjaxResultType;
 import com.noah.api.model.BaseResponse;
-import com.noah.config.JwtToken;
 import com.noah.service.AdminService;
 import com.noah.service.JwtAuthService;
 
@@ -38,9 +38,7 @@ public class AdminController {
 			res.setCode(AjaxResultType.SUCCESS.getCode());
 			res.setMsg(AjaxResultType.SUCCESS.getMsg());
 			res.setData(result);
-			System.out.println("1");
 		} else {
-			System.out.println("2");
 			res.setCode(AjaxResultType.EMPTY.getCode());
 			res.setMsg(AjaxResultType.EMPTY.getMsg());
 			res.setData(result);

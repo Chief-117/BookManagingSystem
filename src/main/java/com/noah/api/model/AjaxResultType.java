@@ -7,7 +7,8 @@ public enum AjaxResultType {
 	SUCCESS("200","作業處理成功"),
 	BAD_REQUEST("E01","作業處理失敗"),
 	FALILURE("E99","作業處理失敗"),
-	EMPTY("050","查無資料");
+	EMPTY("050","查無資料"),
+	UNAUTHORIZED("401","無此憑證");
 	
 	String code;
 	
